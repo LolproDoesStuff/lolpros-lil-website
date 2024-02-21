@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v1 Clock</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-image: linear-gradient(to bottom right, #00ff80, #5100ff);
+            animation: gradientAnimation 5s ease infinite;
+        }
+
+        #buttons-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            position: fixed;
+            width: calc(100% - 20px);
+            z-index: 1;
+        }
+
+        button {
+            width: 200px;
+            height: 80px;
+            font-size: 20px;
+            border-radius: 20px;
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #ddd;
+            transform: scale(1.07);
+        }
+
+        #clock-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #clock {
+            font-size: 11rem;
+            color: white;
+            font-family: 'Arial';
+            opacity: 0;
+            animation: fade-in 0.5s forwards;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-out {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="buttons-container">
+        <button onclick="redirectToClock()">Back</button>
+        <button onclick="toggleImmersiveMode()">Immersive Mode</button>
+    </div>
+    <div id="clock-container">
+        <div id="clock"></div>
+    </div>
+    <script>
+        function updateClock() {
+            const clockElement = document.getElementById('clock');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        window.addEventListener('beforeunload', function () {
+            const clockElement = document.getElementById('clock');
+            clockElement.style.animation = 'fade-out 0.5s forwards';
+        });
+
+        function redirectToClock() {
+            window.location.href = 'clock.html'; 
+        }
+
+        function toggleImmersiveMode() {
+            const buttonsContainer = document.getElementById('buttons-container');
+            const clockContainer = document.getElementById('clock-container');
+
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+                buttonsContainer.style.visibility = 'visible';
+            } else {
+                document.documentElement.requestFullscreen();
+                buttonsContainer.style.visibility = 'hidden';
+            }
+        }
+
+        document.addEventListener('fullscreenchange', function () {
+            const buttonsContainer = document.getElementById('buttons-container');
+            if (!document.fullscreenElement) {
+                buttonsContainer.style.visibility = 'visible';
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && document.fullscreenElement) {
+                document.exitFullscreen();
+                const buttonsContainer = document.getElementById('buttons-container');
+                buttonsContainer.style.visibility = 'visible';
+            }
+        });
+    </script>
+</body>
+</html>
