@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-image: linear-gradient(to bottom right, #00ff80, #5100ff);
+            animation: fade-in 1s ease, gradientAnimation 5s ease infinite;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Arial';
+            color: white;
+            margin:30px 0;
+            font-size: 36px;
+        }
+
+        #generator-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 20px;
+            color: white;
+            margin-bottom: 10px;
+            font-family: 'Arial';
+        }
+
+        input {
+            font-size: 18px;
+            padding: 8px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            width: 200px;
+            height: 60px;
+            font-size: 25px;
+            border-radius: 10px;
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #ddd;
+            transform: scale(1.2);
+        }
+
+        #back-button {
+            position: absolute;
+            width: 200px;
+            height: 70px;
+            top: 20px;
+            left: 35px;
+            font-size: 24px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-family: 'Arial';
+            color: #000;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #back-button:hover {
+            background-color: #ddd;
+            transform: scale(1.2);
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        #result-button {
+            width: 200px;
+            height: 60px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: none;
+            background: #fff;
+            margin-top: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-family: 'Arial';
+            color: #000;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #result-button:hover {
+            background-color: #ddd;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" id="back-button" onclick="fadeOut()">Back</a>
+    <h1>Random Number Generator</h1>
+    <div id="generator-container">
+        <label for="minInput">Min:</label>
+        <input type="number" id="minInput" placeholder="Enter min" />
+
+        <label for="maxInput">Max:</label>
+        <input type="number" id="maxInput" placeholder="Enter max" />
+
+        <button onclick="generateRandomNumber()">Generate</button>
+
+        <button id="result-button" onclick="showResult()"></button>
+    </div>
+    <script>
+        function fadeOut() {
+            document.body.style.animation = 'fade-out 1s ease';
+        }
+
+        function generateRandomNumber() {
+            const minInput = document.getElementById('minInput').value;
+            const maxInput = document.getElementById('maxInput').value;
+
+            const min = parseInt(minInput);
+            const max = parseInt(maxInput);
+
+            if (!isNaN(min) && !isNaN(max) && min <= max) {
+                const randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+                document.getElementById('result-button').textContent = `Result: ${randomNumber}`;
+            } else {
+                document.getElementById('result-button').textContent = 'Invalid input. Please make sure min <= max.';
+            }
+        }
+
+        function showResult() {
+            document.getElementById('result-button').style.visibility = 'visible';
+        }
+    </script>
+</body>
+</html>

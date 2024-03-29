@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lolpro's lil website :)</title>
+    <style>
+        body {
+            text-align: center;
+            margin: auto;
+            background: linear-gradient(to bottom right, #00ff80, #5100ff);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            width: 250px;
+            height: 100px;
+            font-size: 28px; 
+            margin: 15px; 
+            border-radius: 20px;
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #ddd;
+            transform: scale(1.2);
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            font-size: 48   px;
+            color: #fff;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-out {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        button, h1 {
+            opacity: 0;
+            animation: fade-in 0.5s forwards;
+        }
+
+        .fade-out {
+            animation: fade-out 0.5s forwards;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: transparent;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-family: arial;
+        }
+
+        footer a {
+            color: white;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VG33QPYDG6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-VG33QPYDG6');
+    </script>
+</head>
+<body>
+    <h1>Lolpro's lil website :)</h1>
+    <button onclick="handleButtonClick(this)">Clock</button>
+    <button onclick="handleButtonClick(this)">Soundboard</button>
+    <button onclick="handleButtonClick(this)">Randomizer</button>
+    <button onclick="handleButtonClick(this)">Who Am I?</button>
+
+    <footer>
+        Made with &#129302; and &#128156; by Lolpro <br>
+        v 1.0.0 <a href="https://github.com/LolproDoesStuff/lolpros-lil-website" target="_blank">Source code</a>
+    </footer>
+
+    <script>
+        function handleButtonClick(clickedElement) {
+            const elementsToFade = document.querySelectorAll('button, h1');
+            elementsToFade.forEach(element => {
+                element.classList.add('fade-out');
+            });
+
+            setTimeout(() => {
+                if (clickedElement.innerText === 'Clock') {
+                    window.location.href = 'clock.html'; 
+                } else if (clickedElement.innerText === 'Soundboard') {
+                    window.location.href = 'soundboard.html'; 
+                } else if (clickedElement.innerText === 'Randomizer') {
+                    window.location.href = 'random.html'; 
+                } else if (clickedElement.innerText === 'Who Am I?') {
+                    window.location.href = 'whoami.html'; 
+                }
+            }, 500);
+        }
+    </script>
+</body>
+</html>

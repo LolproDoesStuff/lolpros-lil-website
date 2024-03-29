@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundboard</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-image: linear-gradient(to bottom right, #00ff80, #5100ff);
+            animation: fade-in 1s ease, gradientAnimation 5s ease infinite;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Arial';
+            color: white;
+            margin: 40px 0;
+            font-size: 36px;
+        }
+
+        #soundboard-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        iframe {
+            width: 110px;
+            height: 200px;
+        }
+
+        #back-button {
+            position: absolute;
+            width: 200px;
+            height: 70px;
+            top: 20px;
+            left: 35px;
+            font-size: 24px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-family: 'Arial';
+            color: #000;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #back-button:hover {
+            background-color: #ddd;
+            transform: scale(1.2);
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: transparent;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Arial';
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" id="back-button" onclick="fadeOut()">Back</a>
+    <h1>Soundboard</h1>
+    <div id="soundboard-container">
+        <iframe src="https://www.myinstants.com/instant/right-foot-creep-26548/embed/" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.myinstants.com/instant/tu-tu-tu-du-max-verstappen-18834/embed/" frameborder="0" scrolling="no"></iframe>
+        <iframe width="110" height="200" src="https://www.myinstants.com/instant/rickroll-good-82542/embed/" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.myinstants.com/instant/indian-music-mp3-6884/embed/" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.myinstants.com/instant/bruh/embed/" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.myinstants.com/instant/galaxy-meme-18643/embed/" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.myinstants.com/instant/non-piangere-57710/embed/" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.myinstants.com/instant/bye-bye-mewing-98347/embed/" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.myinstants.com/instant/kai-bomboclat-28047/embed/" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <footer>
+        Sounds provided by <a href="https://www.myinstants.com/" target="_blank">myinstants.com</a>
+    </footer>
+    <script>
+        function fadeOut() {
+            document.body.style.animation = 'fade-out 1s ease';
+        }
+    </script>
+</body>
+</html>

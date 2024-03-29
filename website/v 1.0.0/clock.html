@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lolpro's lil website :)</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #00ff80, #5100ff);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            width: 250px;
+            height: 100px;
+            font-size: 28px; 
+            margin: 15px; 
+            border-radius: 20px;
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            opacity: 0;
+            animation: fade-in 0.5s forwards;
+        }
+
+        button:hover {
+            background-color: #ddd;
+            transform: scale(1.2);
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            opacity: 0;
+            animation: fade-in 0.5s forwards;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .back-button {
+            position: absolute;
+            width: 200px;
+            height: 80px;
+            top: 10px;
+            left: 20px;
+            font-size: 24px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="redirectToIndex()">Back</button>
+    <h1>v1 or v2?</h1>
+    <button onclick="redirectToV1()">v1</button>
+    <button onclick="redirectToV2()">v2</button>
+
+    <script>
+        function redirectToV1() {
+            window.location.href = 'v1.html';
+        }
+
+        function redirectToV2() {
+            window.location.href = 'v2.html';
+        }
+                
+        function redirectToIndex() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

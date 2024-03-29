@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Who Am I?</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #00ff80, #5100ff);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            width: 200px;
+            height: 80px;
+            font-size: 24px;
+            margin: 10px;
+            border-radius: 20px;
+            border: none;
+            background: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            opacity: 0; 
+            animation: fade-in 0.5s forwards; 
+        }
+
+        button:hover {
+            background-color: #ddd;
+            transform: scale(1.2);
+        }
+
+        h1,a{
+            font-family: Arial, sans-serif;
+            color: #fff;
+            opacity: 0;
+            animation: fade-in 0.5s forwards; 
+            font-size: 30px; 
+        }
+
+         p {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            opacity: 0;
+            animation: fade-in 0.5s forwards; 
+            font-size: 20px;
+            line-height: 1.2em;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-out {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .back-button {
+            position: absolute;
+            width: 200px;
+            height: 80px;
+            top: 10px;
+            left: 20px;
+            font-size: 24px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="redirectToIndex()">Back</button>
+    <h1>Who Am I?</h1>
+    <p>
+        Hi, I am Lolpro, and I am a random casual guy from Italy
+    </br>
+</br>
+       I discovered computers since I was two years old, and now I'm in love with tech.
+</br>
+    <br>
+        I also really love doing tech pranks (hehehehe) and I even love music. I listen to a lot of Phonk, EDM, OSTs from video games, and more.
+    </br>
+    <br>
+    My favorite videogames are Minecraft, Geometry Dash and Undertale.
+</br>
+    <br>
+       I created this website <s>because why not</s> because here I showcase experiments and random stuff :)
+</br>
+    <br>
+        My gaming laptop specs: CPU: i7-12650H; RAM: 16 GB @ 3200MHz; SSD: 512 GB; GPU: RTX 4050 Laptop (and that is a real thing)
+</br>
+    <br>
+        Here are my socials if you want :D
+    </p>
+    <button onclick="redirectToSocials()">Socials</button>
+
+    <script>
+        function redirectToSocials() {
+            window.location.href = 'https://solo.to/lolpro';
+        }
+        
+        function redirectToIndex() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
